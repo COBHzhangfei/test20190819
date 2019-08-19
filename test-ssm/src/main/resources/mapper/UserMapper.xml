@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tarena.dao.UserMapper">
+	
+	
+	<!-- 增加用户 -->
+	<insert id="addUser"
+			parameterType="User">
+		insert into user
+		(
+			id,
+			name
+		)
+		values
+		(
+			#{id},
+	    	#{username}
+		)
+	</insert>
+	<!-- 删除用户 -->
+	<delete id="deleteUser"
+			parameterType="java.lang.String">
+		delete from user
+		where id=#{id}
+	</delete>
+	<!-- 修改用户 -->
+	<update id="updateUser"
+			parameterType="User">
+		update user set
+			name=#{username}
+		where
+			id=#{id}
+	</update>
+	<!-- 通过关键字查询用户总数 -->
+	<select id="getCount"
+	        parameterType="java.lang.String"
+	        resultType="java.lang.Integer">
+		select
+		    count(id)
+		from user
+		where name like #{userKW}
+	</select>
+	<!-- 查询用户信息 -->
+	<select id="findUserByPage"
+			parameterType="Page"
+			resultType="User">
+		select
+		    id,
+		    name username
+		from user
+		where name like #{userKeyword}
+		limit #{begin},#{pageSize}
+	</select>
+</mapper>
