@@ -26,7 +26,7 @@
 	<dependency>
   		<groupId>org.springframework</groupId>
   		<artifactId>spring-webmvc</artifactId>
-  		<version>4.3.7.RELEASE</version>
+  		<version>5.2.20.RELEASE</version>
   	</dependency>
   	<!-- springmvc 辅助依赖包 用于处理json -->
   	<dependency>
